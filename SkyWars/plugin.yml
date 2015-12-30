@@ -1,0 +1,9 @@
+name: Skywars
+version: 1.0.3
+main: es.spikybite.ProxyCode.Skywars
+depend: [Vault]
+commands:
+ sw:
+  description: Type for more help!
+ stats:
+  description: Skywars stats!

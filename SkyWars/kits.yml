@@ -1,0 +1,62 @@
+menu_name: '&0&nKit Selector'
+menu_rows: 2
+command_buy: 'pex user %player add %perm'
+kits: 
+ Default:
+  icon: 270
+  name: '&aKit Default'
+  slot: 0
+  items:
+  - 268,1,0
+  - 269,1,0
+  - 270,1,0
+  - 271,1,0
+  description: 
+   locked:
+   - '&7- 1 wood sword'
+   - '&7- 1 wood pickaxe'
+   - '&7- 1 wood axe'
+   - '&7- 1 wood shovel'
+   - '&f'
+   - '&c&nKit price: &a&n%cost'
+   unlocked:
+   - '&7- 1 wood sword'
+   - '&7- 1 wood pickaxe'
+   - '&7- 1 wood axe'
+   - '&7- 1 wood shovel'
+   - '&f'
+   - '&a&nClick for select.'
+ Builder:
+  icon: 45
+  name: '&aKit Builder'
+  slot: 1
+  items:
+  - 45,20,0
+  description: 
+   locked:
+   - '&7- 20 bricks blocks'
+   - '&f'
+   - '&c&nKit price: &a&n%cost'
+   unlocked:
+   - '&7- 20 bricks blocks'
+   - '&f'
+   - '&a&nClick for select.'
+ Warrior:
+  icon: 258
+  name: '&aKit Warrior'
+  price: 200
+  permission: 'skywars.kit.warrior'
+  slot: 9
+  items:
+  - "258,1,0,name:&eKit Warrior,DAMAGE_ALL:1"
+  description: 
+   locked:
+   - '&7- 1 super iron axe'
+   - '&f'
+   - '&c&nKit price: &a&n%cost'
+   unlocked:
+   - '&7- 1 super iron axe'
+   - '&f'
+   - '&a&nClick for select.'
+    
+  

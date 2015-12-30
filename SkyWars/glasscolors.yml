@@ -1,0 +1,23 @@
+inventory_name: '&e&lDefault'
+inventory_rows: 1
+permission_node: skywars.glass.
+glass:
+ default:
+  display_name: '&7Gray Glass'
+  slot: 0
+  colorID: 0
+  permission: default
+  description:
+  - '&a-------------------------'
+  - '&7Gray Glass click for select'
+  - '&a-------------------------'
+ red:
+  display_name: '&cRed Glass'
+  slot: 1
+  colorID: 14
+  permission: red
+  price: 20
+  description:
+  - '&a-------------------------'
+  - '&cRed Glass click for select'
+  - '&a-------------------------'

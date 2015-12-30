@@ -1,0 +1,22 @@
+wins: 0
+kills: 0
+deaths: 0
+games: 0
+kdr: 0.00
+steps: 0
+break: 0
+placed: 0
+shots: 0
+glass: normal
+trail: normal
+level_habilidad:
+ triple_arrow: 0
+ more_damage: 0
+ more_hearth: 0
+ take_knockback: 0
+habilidades:
+ triple_arrow: 0
+ more_hearth: 0
+ more_damage: 0
+ take_knockback: 0
+ take_fall_damage: 0

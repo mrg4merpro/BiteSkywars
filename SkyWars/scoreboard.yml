@@ -1,0 +1,15 @@
+# Variables #
+# %kills% %deaths% %games% %wins% %shots% %walked%
+# %breakblocks% %placedblocks% %kdr% %prefix% 
+# %trail% %glass% %coins% %name%
+lobby-board-enabled: true
+lobby-displayname: "&e&l%name%"
+lobby-lines:
+ - '&f'
+ - '&eKills: &f%kills%'
+ - '&eDeaths: &f%deaths%'
+ - '&eWins: &f%wins%'
+ - '&eGames: &f%games%'
+ - '&eCoins: &f%coins%'
+ - '&f&f'
+ - '&ewww.spikybite.net'

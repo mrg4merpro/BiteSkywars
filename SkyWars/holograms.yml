@@ -1,0 +1,11 @@
+lines:
+ - '&9&kiii &a%player% &e&lSkywars &astatics &9&kiii'
+ - '&6Wins: &a%wins%'
+ - '&6Kills: &a%kills%'
+ - '&6Deaths: &a%deaths%'
+ - '&6Arrow shots: &a%arrowshots%'
+ - '&6Games played: &a%games%'
+ - '&6Blocks broken: &a%break%'
+ - '&6Blocks placeds: &a%placed%'
+ - '&6Distance walked: &a%walked%'
+locations:

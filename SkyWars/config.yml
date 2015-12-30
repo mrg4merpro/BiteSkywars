@@ -1,0 +1,13 @@
+item-lobby:
+ lobbyItem: true
+ habilitiesItem: true
+bungeeMode: false
+canDestroyAndBuild: false
+mysql:
+ enable: false
+ host: localhost
+ database: skywars
+ password: cheese
+ username: root
+ port: 3306
+ 

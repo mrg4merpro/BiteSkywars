@@ -1,0 +1,125 @@
+prefix: '&8[&bSkywars&8] &e'
+good_luck:
+- '&9GOOOOOOO!'
+- '&a%chest &bselected for this game'
+- '&a%time &bselected for this game'
+- '&a%refill &bselected for this game'
+player_win_arena:
+- '&a---------------------------'
+- '&e%player win the game'
+- '&a---------------------------'
+chat: '&a(<POINTS>) <PREFIX> &7<USERNAME>&8: &b<MESSAGE>'
+max_votes_used: '&cYou cant vote two times!'
+no_permission: '&cYou dont have permission!'
+player_join_to_arena: '&5%player joined the game (%online/%max)'
+player_leave_to_arena: '&6%player leave the game (%online/%max)'
+rewards: '&a+%points  points'
+player_death_by_void: '&b%player &6killed by void'
+player_death_by_player: '&b%player &6killed by &b%killer &a(+%points points)'
+countdown: '&9Skywars starting in %time'
+countdown_release: '&cYou will release in %time'
+teleport_to_map: '&9Teleporting to map..'
+game_starting: '&9The game is starting!'
+game_stopped: '&cThe game stopped!'
+arena_full: '&cArena full!'
+arena_restarting: '&cArena restarting'
+arena_ingame: '&cArena already started!'
+spawnspoints_not_found: '&cSpawns points not found!'
+arena_not_found: '&cArena not found!'
+not_these_in_arena: '&cYou not these in any arena!'
+vote_basic: '&a%name &6voted Basic Chest&e! %votes votes'
+vote_normal: '&a%name &6voted Normal Chest&e! %votes votes'
+vote_overpowered: '&a%name &6voted Overpowered Chest&e! %votes votes'
+vote_day: '&a%name &6voted Day time&e! %votes votes'
+vote_sunset: '&a%name &6voted Sunset&e! %votes votes'
+vote_night: '&a%name &6voted Night time&e! %votes votes'
+kit_selected: '&aKit selected %kit'
+kit_not_enough_money: '&cYou not have enough money for buy this kit'
+kit_purchase: '&aYou buy kit %kit'
+sign:
+  sign_header: '&lSkyWars'
+  sign_state: '%state'
+  sign_map: '&nMap: %map'
+  sign_players: '&8%on/%max'
+game:
+  time_countdown: 20
+  kill_reward_points: 20
+  win_reward_points: 10
+  state_waiting: '&aWaiting'
+  state_starting: '&6Starting'
+  state_ingame: '&4In-Game'
+  state_restarting: '&9Restarting'
+  state_full: Full
+  block_state_waiting: '95:5'
+  block_state_starting: '95:4'
+  block_state_ingame: '95:14'
+  block_state_restarting: '95:15'
+  block_state_full: '95:10'
+scoreboard:
+  name: '&6&lSkywars'
+  lines:
+  - '&5Map'
+  - '&a%map'
+  - '&f'
+  - '&5Players'
+  - '&a%players/%max'
+  - '&f&f'
+  - '&fwww.spikybite.net'
+inventories:
+  vote_chest: '&c&lVote Chest'
+  vote_time: '&b&lVote Time'
+  vote_refill: '&b&lVote Refill Chest'
+  vote_selector: '&e&lVote Menu'
+inventories_material:
+  vote_chest_id: 54
+  vote_time_id: 175
+  vote_refill_id: 325
+items_inventories:
+  vote_chest_basic: '&e&lChest Basic'
+  vote_chest_normal: '&6&lChest Normal'
+  vote_chest_overpowered: '&4&lChest Overpowered'
+  vote_time_day: '&e&lTime Day'
+  vote_time_sunset: '&6&lSunset'
+  vote_time_night: '&7&lTime Night'
+  vote_selector_chest: '&e&lChest Vote'
+  vote_selector_refill: '&b&lRefill Vote'
+  vote_selector_time: '&6&lTime Vote'
+  vote_chest_basic_lore:
+  - Vote for basic chest
+  - Items basics, swords, armor
+  - '&4&o%votes votes'
+  vote_chest_normal_lore:
+  - Vote for normal chest
+  - Items basics, swords, armor
+  - iron, gold apples
+  - '&4&o%votes votes'
+  vote_chest_overpowered_lore:
+  - Vote for overpowered chest
+  - Items overpowered items enchants
+  - super apple regen IV, super bows
+  - '&4&o%votes votes'
+  vote_time_day_lore:
+  - Vote time day
+  - Day very beautiful
+  - '&4&o%votes votes'
+  vote_time_sunset_lore:
+  - Vote time sunset
+  - Almost night
+  - '&4&o%votes votes'
+  vote_time_night_lore:
+  - Vote time night
+  - Care with the monsters
+  - '&4&o%votes votes'
+player_inventory:
+  name:
+    item_kit_name: '&aKit Selector &7(Right Click)'
+    item_vote_name: '&eVote &7(Right Click)'
+    item_player_settings_name: '&aSkywars Settings &7(Right Click)'
+    item_lobby: '&aSettings &7(Right Click)'
+    habilitiesItem: '&bHabilities &7(Right Click)'
+    item_leave_name: '&cLeave &7(Right Click)'
+  id:
+    item_kit_id: 399
+    item_vote_id: 339
+    item_player_settings_id: 262
+    item_leave_id: 378
