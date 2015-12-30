@@ -1,0 +1,2 @@
+# BiteSkywars
+The Improved SkyWars!
