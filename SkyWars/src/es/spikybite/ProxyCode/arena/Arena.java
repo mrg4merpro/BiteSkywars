@@ -33,6 +33,7 @@ import es.spikybite.ProxyCode.Skywars;
 import es.spikybite.ProxyCode.controllers.KitController;
 import es.spikybite.ProxyCode.events.PlayerChestFilled;
 import es.spikybite.ProxyCode.inventories.VoteChest;
+import es.spikybite.ProxyCode.inventories.VoteTime;
 import es.spikybite.ProxyCode.player.SPlayer;
 import es.spikybite.ProxyCode.utils.Fireworks;
 import es.spikybite.ProxyCode.utils.ItemBuilder;
@@ -57,6 +58,8 @@ private HashMap<Location, Boolean> Spawns = new HashMap<Location, Boolean>();
 private HashMap<Player, Location> PSpawns = new HashMap<Player, Location>();
 private ArrayList<String> acofre = new ArrayList<String>();
 private ArrayList<String> atiempo = new ArrayList<String>();
+private ArrayList<Location> chest = new ArrayList<Location>();
+
 private String Cofre;
 private String Tiempo;
 private ArenaManager am = new ArenaManager();
@@ -89,7 +92,18 @@ public Arena(String name, String layouName, int min, int max){
     setGlass();
     loadSpawns();
 }
-
+public void addChest(Location loc){
+	chest.add(loc);
+}
+public void removeChest(Location loc){
+	chest.remove(loc);
+}
+public boolean contains(Location loc){
+	if(chest.contains(loc)){
+		return true;
+	}
+	return false;
+}
 public void esperando(boolean set){
 	this.esperando = set;
 }
@@ -327,6 +341,7 @@ public void spect(final Player p){
 	ingame.remove(p); 
 	out.add(p);
 	VoteChest.maxVote.remove(p);
+	VoteTime.maxVote.remove(p);
 	Trails.data.remove(p);
 	p.getInventory().clear();
 	p.getInventory().setArmorContents(null);
@@ -379,6 +394,7 @@ public void leave(Player p){
 am.setGlass(p.getLocation());
 	}
 VoteChest.maxVote.remove(p);
+VoteTime.maxVote.remove(p);
 Trails.data.remove(p);
 p.getInventory().clear();
 p.getInventory().setArmorContents(null);
@@ -420,6 +436,7 @@ p.getScoreboard().getObjective(DisplaySlot.SIDEBAR).unregister();
 public void leaveReset(Player p){
 	all.remove(p);
 VoteChest.maxVote.remove(p);
+VoteTime.maxVote.remove(p);
 Trails.data.remove(p);
 p.getInventory().clear();
 p.getInventory().setArmorContents(null);
@@ -606,7 +623,7 @@ public void importNewWorld(){
     for(Player p : Bukkit.getWorld(name).getPlayers()){
     	p.kickPlayer(name +" mode restart.");
     }
-    PlayerChestFilled.clearDataChest(this);
+    chest.clear();
    final File worldto = new File(world.getName());
    final  File folderworld = new File("plugins/Skywars/mapas/"+world.getName());
 

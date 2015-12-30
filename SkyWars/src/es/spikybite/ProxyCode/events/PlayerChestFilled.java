@@ -31,8 +31,8 @@ public class PlayerChestFilled implements Listener{
 		if(a == null)return;
 		if(clicked.getState() instanceof Chest){
 		Chest chest = (Chest)clicked.getState();
-		if(!ARENA_OPEN_CHESTS.containsKey(blockClicked)){
-			ARENA_OPEN_CHESTS.put(blockClicked, a);
+		if(!a.contains(blockClicked)){
+			a.addChest(blockClicked);
 			Skywars.getCC().populateChest(a, chest);
 		}
 		
@@ -48,7 +48,7 @@ public class PlayerChestFilled implements Listener{
 		Player p = event.getPlayer();
 		Arena a = am.getArena(p);
 		if(a!= null){
-		ARENA_OPEN_CHESTS.put(loc, a);
+		a.addChest(loc);
 		}
 	}
 	
@@ -59,18 +59,9 @@ public class PlayerChestFilled implements Listener{
 		Player p = event.getPlayer();
 		Arena a = am.getArena(p);
 		if(a!= null){
-		ARENA_OPEN_CHESTS.remove(loc);
+		a.removeChest(loc);
 		}
 	}
 	
-	public static void clearDataChest(Arena a){
-		Iterator<Location> loc = ARENA_OPEN_CHESTS.keySet().iterator();
-		while (loc.hasNext()) {
-			Location locs = loc.next();
-			if(ARENA_OPEN_CHESTS.get(locs).arena().equalsIgnoreCase(a.arena())){
-				ARENA_OPEN_CHESTS.remove(locs);
-			}
-			
-		}
-	}
+	
 }
