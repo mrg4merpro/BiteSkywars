@@ -31,25 +31,25 @@ public class SWCommand implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label,
 			String[] args) {
 		if(!(sender instanceof Player)){
-			sender.sendMessage("§cCommands avaibles only for players!");
+			sender.sendMessage("Â§cCommands avaibles only for players!");
 			
 			return true;
 		}
 		if(cmd.getName().equalsIgnoreCase("stats")){
 			Player p = (Player)sender;
 			SPlayer player = SPlayer.getDPlayer(p);
-			p.sendMessage("§7--------- §bSkywars Statics §7----------");
-			p.sendMessage("§7Kills: §a"+player.getKills());
-			p.sendMessage("§7Deaths: §a"+player.getDeaths());
-			p.sendMessage("§7Blocks Broken: §a"+player.getBlockBreaks());
-			p.sendMessage("§7Blocks Placeds: §a"+player.getBlockPlaceds());
-			p.sendMessage("§7Games playeds: §a"+player.getGames());
-			p.sendMessage("§7Wins: §a"+player.getWins());
-			p.sendMessage("§7Arrow Shots: §a"+player.getShots());
-			p.sendMessage("§7Distance Walked: §a"+player.getWalked());
-			p.sendMessage("§7Glass: §a"+player.getGlass());
-			p.sendMessage("§7Trail: §a"+player.getTrail());
-			p.sendMessage("§7--------------------------");
+			p.sendMessage("Â§7--------- Â§bEstadisticas Â§7----------");
+			p.sendMessage("Â§7Bajas: Â§a"+player.getKills());
+			p.sendMessage("Â§7Muertes: Â§a"+player.getDeaths());
+			p.sendMessage("Â§7Bloques Destruidos: Â§a"+player.getBlockBreaks());
+			p.sendMessage("Â§7Bloques Insertados: Â§a"+player.getBlockPlaceds());
+			p.sendMessage("Â§7Partidas Jugadas: Â§a"+player.getGames());
+			p.sendMessage("Â§7Victorias: Â§a"+player.getWins());
+			p.sendMessage("Â§7Disparos: Â§a"+player.getShots());
+			p.sendMessage("Â§7Distancias Recorridas: Â§a"+player.getWalked());
+			p.sendMessage("Â§7Crisral: Â§a"+player.getGlass());
+			p.sendMessage("Â§7Flechas: Â§a"+player.getTrail());
+			p.sendMessage("Â§7--------------------------");
 		}
 		if(cmd.getName().equalsIgnoreCase("sw")){
 			Player p = (Player)sender;
@@ -68,29 +68,29 @@ YamlConfiguration config = new YamlConfiguration().loadConfiguration(file);
 		
 				Location loc = p.getLocation();
 				if(am.exist(world.getName())){
-					p.sendMessage("§cArena with name: "+world.getName()+ " already exist");
+					p.sendMessage("Â§cArena with name: "+world.getName()+ " already exist");
 					return true;
 				}
 				Arena a = new Arena(world.getName(), world.getName(), 4, 12);
 			    am.save(config, file);		a.load();
-				p.sendMessage("§aArena "+world.getName()+" create successful!");
+				p.sendMessage("Â§aArena "+world.getName()+" create successful!");
 			}else if(args[0].equalsIgnoreCase("rename")){
 				if(retornar(p)){
 				return true;
 				}
 				if(args.length  < 2){
-					p.sendMessage("§c/sw rename <newName>");
+					p.sendMessage("Â§c/sw rename <newName>");
 					return true;
 				}
 				
 				if(!am.exist(world.getName())){
-					p.sendMessage("§cArena "+world.getName()+ " not exist");
+					p.sendMessage("Â§cArena "+world.getName()+ " not exist");
 					return true;
 				}
 				
 				config.set("aName", args[1]);
 				am.save(config, file);
-				p.sendMessage("§aYou renamed "+world.getName() + " to "+args[1]);
+				p.sendMessage("Â§aYou renamed "+world.getName() + " to "+args[1]);
 				
 			}else if(args[0].equalsIgnoreCase("setspect")){
 				if(retornar(p)){
@@ -98,13 +98,13 @@ YamlConfiguration config = new YamlConfiguration().loadConfiguration(file);
 					return true;
 				}
 				if(!am.exist(world.getName())){
-					p.sendMessage("§cArena "+world.getName()+ " not exist");
+					p.sendMessage("Â§cArena "+world.getName()+ " not exist");
 					return true;
 				}
 				Location loc = p.getLocation();
 			config.set("aSpectatorSpawn", am.setLoc(p.getLocation()));
 			am.save(config, file);
-				p.sendMessage("§aSpectator spawn set to arena "+world.getName());
+				p.sendMessage("Â§aSpectator spawn set to arena "+world.getName());
 			}
 			else if(args[0].equalsIgnoreCase("spawn")){   if(retornar(p)){
 				   return true;
@@ -113,46 +113,46 @@ YamlConfiguration config = new YamlConfiguration().loadConfiguration(file);
 			
 				Skywars.pl.getConfig().set("spawn", am.setLoc(loc));
 			    Skywars.pl.saveConfig();
-				p.sendMessage("§aGlobal spawn set!");
+				p.sendMessage("Â§aGlobal spawn set!");
 			}
 			else if(args[0].equalsIgnoreCase("min")){   if(retornar(p)){
 				   return true;
 			    }
 				if(args.length < 2){
-					p.sendMessage("§c/sw min <min>");
+					p.sendMessage("Â§c/sw min <min>");
 					return true;
 				}
 				if(!am.exist(world.getName())){
-					p.sendMessage("§cArena "+world.getName()+ " not exist");
+					p.sendMessage("Â§cArena "+world.getName()+ " not exist");
 					return true;
 				}
 				try{
 					int i = Integer.parseInt(args[1]);
 					config.set("aMin", i);
 				    am.save(config, file);
-				    p.sendMessage("§a"+i+" minplayers for arena "+world.getName());
+				    p.sendMessage("Â§a"+i+" minplayers for arena "+world.getName());
 				}catch(NumberFormatException e){
-					p.sendMessage("§cInvalid number!");
+					p.sendMessage("Â§cInvalid number!");
 				}
 			}
 			else if(args[0].equalsIgnoreCase("max")){    if(retornar(p)){
 				   return true;
 			    }
 				if(args.length < 2){
-					p.sendMessage("§c/sw max <min>");
+					p.sendMessage("Â§c/sw max <min>");
 					return true;
 				}
 				if(!am.exist(world.getName())){
-					p.sendMessage("§cArena "+world.getName()+ " not exist");
+					p.sendMessage("Â§cArena "+world.getName()+ " not exist");
 					return true;
 				}
 				try{
 					int i = Integer.parseInt(args[1]);
 					config.set("aMax", i);
 				    am.save(config, file);
-				    p.sendMessage("§a"+i+" maxplayers for arena "+world.getName());
+				    p.sendMessage("Â§a"+i+" maxplayers for arena "+world.getName());
 				}catch(NumberFormatException e){
-					p.sendMessage("§cInvalid number!");
+					p.sendMessage("Â§cInvalid number!");
 				}
 			}
 			
@@ -163,29 +163,29 @@ YamlConfiguration config = new YamlConfiguration().loadConfiguration(file);
 			    }
 				Location loc = p.getLocation();
 				if(!am.exist(world.getName())){
-					p.sendMessage("§cArena "+world.getName()+ " not exist");
+					p.sendMessage("Â§cArena "+world.getName()+ " not exist");
 					return true;
 				}
 				am.add(world, loc);
-				p.sendMessage("§aSpawn added");
+				p.sendMessage("Â§aSpawn added");
 			}else if(args[0].equalsIgnoreCase("remove")){   if(retornar(p)){
 				   return true;
 			    }
 				Location loc = p.getLocation();
 				if(!am.exist(world.getName())){
-					p.sendMessage("§cArena "+world.getName()+ " not exist");
+					p.sendMessage("Â§cArena "+world.getName()+ " not exist");
 					return true;
 				}
 				am.remove(world);
-				p.sendMessage("§cSpawn removed!");
+				p.sendMessage("Â§cSpawn removed!");
 			}else if(args[0].equalsIgnoreCase("arenas")){
 				StringBuilder b = new StringBuilder();
-				p.sendMessage("§aArenas: " + b.append(ArenaManager.arenas.toString()));
+				p.sendMessage("Â§aArenas: " + b.append(ArenaManager.arenas.toString()));
 			}else if(args[0].equalsIgnoreCase("join")){ if(retornar(p, "skywars.join")){
 				   return true;
 			    }
 				if(args.length < 2){
-					p.sendMessage("§c/sw join <arena>");
+					p.sendMessage("Â§c/sw join <arena>");
 					return true;
 				}
 				Arena arena = am.getArena(args[1]);
@@ -217,19 +217,19 @@ YamlConfiguration config = new YamlConfiguration().loadConfiguration(file);
 				   return true;
 			    }
 		        if(args.length < 2){
-		        	p.sendMessage("§c/sw load <worldName>");
+		        	p.sendMessage("Â§c/sw load <worldName>");
 		        	return true;
 		        }
 		        String name = args[1];
 		        if(Bukkit.getWorld(name)!=null){
-		        	p.sendMessage("§cWorld already loaded!");
+		        	p.sendMessage("Â§cWorld already loaded!");
 		        	return true;
 		        }
 		       
 		        File mundo = new File(name);
 		        File carpeta = new File("plugins/Skywars/mapas/"+name);
 		        if(!carpeta.exists()){
-	            	p.sendMessage("§cError ocurred when try copy directory to mapas directory!");
+	            	p.sendMessage("Â§cError ocurred when try copy directory to mapas directory!");
 	            	return true;
 	            	
 	            }
@@ -237,11 +237,11 @@ YamlConfiguration config = new YamlConfiguration().loadConfiguration(file);
 		        try {
 					am.copyDir(carpeta, mundo);
 
-			        p.sendMessage("§aSuccessful loaded a world "+args[1]);
-			        p.sendMessage("§aCopied world from mapas to "+args[1] + " principal.");
+			        p.sendMessage("Â§aSuccessful loaded a world "+args[1]);
+			        p.sendMessage("Â§aCopied world from mapas to "+args[1] + " principal.");
 				} catch (IOException e) {
 
-					p.sendMessage("§cFailed to load an world please check logs console");
+					p.sendMessage("Â§cFailed to load an world please check logs console");
 					e.printStackTrace();
 				}
 		        WorldCreator wc = new WorldCreator(args[1]);
@@ -265,18 +265,18 @@ YamlConfiguration config = new YamlConfiguration().loadConfiguration(file);
 					cargados = cargados + mundos.getName()+", ";
 				}
 				
-		p.sendMessage("§cWorlds loaded: "+cargados);
+		p.sendMessage("Â§cWorlds loaded: "+cargados);
 				
 			}else if(args[0].equalsIgnoreCase("tp")){   if(retornar(p)){
 				   return true;
 			    }
 				if(args.length < 2){
-					p.sendMessage("§c/sw tp <worldName>");
+					p.sendMessage("Â§c/sw tp <worldName>");
 					return true;
 				}
 				World mundo = Bukkit.getWorld(args[1]);
 				if(mundo==null){
-					p.sendMessage("§cThis world not exist!");
+					p.sendMessage("Â§cThis world not exist!");
 					return true;
 				}
 				p.teleport(mundo.getSpawnLocation());
@@ -284,7 +284,7 @@ YamlConfiguration config = new YamlConfiguration().loadConfiguration(file);
 				if(block.getType() == Material.AIR){
 					block.setType(Material.STONE);
 				}
-				p.sendMessage("§aTeleported to "+mundo.getName());
+				p.sendMessage("Â§aTeleported to "+mundo.getName());
 				
 			}else if(args[0].equalsIgnoreCase("saveworld")){
 				if(retornar(p)){
@@ -298,33 +298,33 @@ YamlConfiguration config = new YamlConfiguration().loadConfiguration(file);
 			    }
 			    try {
 					am.copyDir(from, to);
-					p.sendMessage("§aYou save this world succesful!");
+					p.sendMessage("Â§aYou save this world succesful!");
 				} catch (IOException e) {
-p.sendMessage("§cFailed to try save this world :( check console logs");
+p.sendMessage("Â§cFailed to try save this world :( check console logs");
 					e.printStackTrace();
 				}
 			    
 			}else if(args[0].equalsIgnoreCase("about")){
-				p.sendMessage("§7§m-=-=-=-=--=-=-=-=--=-=-=-=-");
-				p.sendMessage("§8Plugin: §bBiteSkywars");
-				p.sendMessage("§8Version: §bv0.8.R6");
-				p.sendMessage("§8Author: §bProxyCode");
-				p.sendMessage("§8Compiled: §bJava SE 1.7");
-				p.sendMessage("§4Thanks you!");
-				p.sendMessage("§7§m-=-=-=-=--=-=-=-=--=-=-=-=-");
+				p.sendMessage("Â§7Â§m-=-=-=-=--=-=-=-=--=-=-=-=-");
+				p.sendMessage("Â§8Plugin: Â§bBiteSkywars");
+				p.sendMessage("Â§8Version: Â§bv0.8.R6");
+				p.sendMessage("Â§8Author: Â§bProxyCode");
+				p.sendMessage("Â§8Compiled: Â§bJava SE 1.7");
+				p.sendMessage("Â§4Thanks you!");
+				p.sendMessage("Â§7Â§m-=-=-=-=--=-=-=-=--=-=-=-=-");
 			}else if(args[0].equalsIgnoreCase("save")){
 				if(retornar(p)){
 					   return true;
 				    }
 				if(args.length < 2){
-					p.sendMessage("§c/sw save <worldName>");
+					p.sendMessage("Â§c/sw save <worldName>");
 					return true;
 				}
 				if(Bukkit.getWorld(args[1])!=null){
-					p.sendMessage("§cThis world already exist!");
+					p.sendMessage("Â§cThis world already exist!");
 					return true;
 				}
-	            p.sendMessage("§aCreating new world....");
+	            p.sendMessage("Â§aCreating new world....");
 	            WorldCreator wc = new WorldCreator(args[1]);
 	        	wc.generateStructures(false);
 	        	World w = wc.createWorld();
@@ -340,7 +340,7 @@ p.sendMessage("§cFailed to try save this world :( check console logs");
 	            w.setGameRuleValue("showDeathMessages", "false");
 	            File mundo = new File(args[1]);
 	            if(!mundo.exists()){
-	            	p.sendMessage("§cError ocurred when try copy directory to mapas directory!");
+	            	p.sendMessage("Â§cError ocurred when try copy directory to mapas directory!");
 	            	return true;
 	            	
 	            }
@@ -351,17 +351,17 @@ p.sendMessage("§cFailed to try save this world :( check console logs");
 		        try {
 					am.copyDir(mundo, carpeta);
 
-			        p.sendMessage("§a100% world created successful!");
+			        p.sendMessage("Â§a100% world created successful!");
 
 			        p.sendMessage(mundo.getPath()+" copied to "+carpeta.getPath());
 				} catch (IOException e) {
-					p.sendMessage("§cFailed to create an world please check logs console");
+					p.sendMessage("Â§cFailed to create an world please check logs console");
 					e.printStackTrace();
 				}
 			}else if(args[0].equalsIgnoreCase("page")){
 				
 				if(args.length < 2){
-					p.sendMessage("§c/sw page <page-number> §7- Show other command list");
+					p.sendMessage("Â§c/sw page <page-number> Â§7- Show other command list");
 					return true;
 				}
 				if(args[1].equalsIgnoreCase("2")){
@@ -382,27 +382,27 @@ p.sendMessage("§cFailed to try save this world :( check console logs");
 					return true;
 				}
 				if(a.isStarting()){
-					p.sendMessage(Skywars.p + "§7This arena already starting!");
+					p.sendMessage(Skywars.p + "Â§7This arena already starting!");
 					return true;
 				}
-		     p.sendMessage(Skywars.p + "§aYou will force start this arena.");
+		     p.sendMessage(Skywars.p + "Â§aYou will force start this arena.");
 		     a.second();
 			}else if(args[0].equalsIgnoreCase("addholo")){
 			    List<String> locs = Skywars.holo.getConfig().getStringList("locations");
 			    locs.add(am.setLoc(p.getLocation()));
 			    Skywars.holo.getConfig().set("locations", locs);
 			    Skywars.holo.save();
-				p.sendMessage("§aAdded hologram location done!");
+				p.sendMessage("Â§aAdded hologram location done!");
 			}else if(args[0].equalsIgnoreCase("removeholo")){
 			    List<String> locs = Skywars.holo.getConfig().getStringList("locations");
 			    if(locs.isEmpty()){
-			    	p.sendMessage("§cHolograms list is empty!");
+			    	p.sendMessage("Â§cHolograms list is empty!");
 			    	return true;
 			    }
 			    locs.remove(locs.get(locs.size()-1));
 			    Skywars.holo.getConfig().set("locations", locs);
 			    Skywars.holo.save();
-				p.sendMessage("§cRemoved spawn for hologram done!");
+				p.sendMessage("Â§cRemoved spawn for hologram done!");
 			}
 			
 			else{ 
@@ -430,48 +430,48 @@ p.sendMessage("§cFailed to try save this world :( check console logs");
 		if(page == 1){
 
 			if(p.hasPermission("skywars.admin")){
-		p.sendMessage("§cBiteSkywars Reloaded v0.9R1");
+		p.sendMessage("Â§cBiteSkywars Reloaded v0.9R1");
 		p.sendMessage("");
 			}
 		if(p.hasPermission("skywars.join")||p.hasPermission("skywars.admin")){
-		p.sendMessage("§c/sw join §7- Join to arena");
+		p.sendMessage("Â§c/sw join Â§7- Join to arena");
 		}
 
 		if(p.hasPermission("skywars.join")||p.hasPermission("skywars.admin")){
-		p.sendMessage("§c/sw leave §7- Leave arena");
+		p.sendMessage("Â§c/sw leave Â§7- Leave arena");
 		}
 
 		if(p.hasPermission("skywars.admin")){
-		p.sendMessage("§c/sw create §7- Create arena with world name");
-		p.sendMessage("§c/sw rename <newName> §7- Rename your arena");
-		p.sendMessage("§c/sw setspect §7- Set spectator spawn to current arena");
-		p.sendMessage("§c/sw add §7- Add spawn in arena");
-		p.sendMessage("§c/sw remove §7- Remove spawn in arena");
-		p.sendMessage("§c/sw min <min> §7- Add minplayers in arena");
-		p.sendMessage("§c/sw max <max> §7- Add maxplayers in arena");
-		p.sendMessage("§c/sw forcestart §7- Force start arena");
-		p.sendMessage("§c/sw saveworld §7- Save your current worlds if you edit map");
-		p.sendMessage("§c/sw addholo §7- Add location to hologram!");
-		p.sendMessage("§c/sw removeholo §7- Remove last location added of hologram!");
+		p.sendMessage("Â§c/sw create Â§7- Create arena with world name");
+		p.sendMessage("Â§c/sw rename <newName> Â§7- Rename your arena");
+		p.sendMessage("Â§c/sw setspect Â§7- Set spectator spawn to current arena");
+		p.sendMessage("Â§c/sw add Â§7- Add spawn in arena");
+		p.sendMessage("Â§c/sw remove Â§7- Remove spawn in arena");
+		p.sendMessage("Â§c/sw min <min> Â§7- Add minplayers in arena");
+		p.sendMessage("Â§c/sw max <max> Â§7- Add maxplayers in arena");
+		p.sendMessage("Â§c/sw forcestart Â§7- Force start arena");
+		p.sendMessage("Â§c/sw saveworld Â§7- Save your current worlds if you edit map");
+		p.sendMessage("Â§c/sw addholo Â§7- Add location to hologram!");
+		p.sendMessage("Â§c/sw removeholo Â§7- Remove last location added of hologram!");
 		p.sendMessage("");
 		
 		
-		p.sendMessage("§7-------- §c/sw page 2 §7--------");
+		p.sendMessage("Â§7-------- Â§c/sw page 2 Â§7--------");
 		}
 		}else {
 
 			if(p.hasPermission("skywars.admin")){
-			p.sendMessage("§cBiteSkywars Reloaded v0.9R1");
+			p.sendMessage("Â§cBiteSkywars Reloaded v0.9R1");
 			p.sendMessage("");
-			p.sendMessage("§c/sw max <max> §7- Add maxplayers in arena");
-			p.sendMessage("§c/sw spawn §7- Set global spawn");
-			p.sendMessage("§c/sw arenas §7- Show arena list!");
-			p.sendMessage("§c/sw tp <worldName> §7- Teleport to world!!");
-			p.sendMessage("§c/sw list §7- Show world list (loaded)!");
-			p.sendMessage("§c/sw load <worldName> §7- Load a new world!");
-			p.sendMessage("§c/sw save <worldName> §7- Create a new world!");	
+			p.sendMessage("Â§c/sw max <max> Â§7- Add maxplayers in arena");
+			p.sendMessage("Â§c/sw spawn Â§7- Set global spawn");
+			p.sendMessage("Â§c/sw arenas Â§7- Show arena list!");
+			p.sendMessage("Â§c/sw tp <worldName> Â§7- Teleport to world!!");
+			p.sendMessage("Â§c/sw list Â§7- Show world list (loaded)!");
+			p.sendMessage("Â§c/sw load <worldName> Â§7- Load a new world!");
+			p.sendMessage("Â§c/sw save <worldName> Â§7- Create a new world!");	
 			p.sendMessage("");
-			p.sendMessage("§7-------- §c/sw page 1 §7--------");
+			p.sendMessage("Â§7-------- Â§c/sw page 1 Â§7--------");
 			}
 		}
 	}
